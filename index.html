@@ -380,12 +380,12 @@
   .seg.wrap{flex-wrap:wrap;}
   .seg.wrap button{flex:0 1 auto;padding:8px 10px;}
   .seg button.active{background:var(--primary);color:#fff;}
-  .small-note{font-size:11px;color:var(--ink-soft);line-height:1.8;margin-top:6px;}
+  .small-note{font-size:13.5px;color:var(--ink-soft);line-height:2;margin-top:6px;}
 
   /* ---- bottom nav ---- */
   /* ---- readability tweaks ---- */
-  .hint-note{font-size:13px;}
-  .small-note{font-size:12.5px;}
+  .hint-note{font-size:14.5px;}
+  .small-note{font-size:13.5px;}
   .review-item .rmeta{font-size:12.5px;}
   .player .rec-sub{font-size:11.5px;}
   body{line-height:1.6;}
@@ -458,10 +458,10 @@
   .drawer-item .toggle-pill.on .dot{transform:translateX(-18px);}
   .drawer-sep{height:1px;background:var(--border);margin:8px 14px;}
   .drawer-panel{
-    display:none;padding:6px 16px 18px;font-size:13px;line-height:1.9;color:var(--ink-soft);
+    display:none;padding:6px 16px 18px;font-size:15.5px;line-height:2.1;color:var(--ink-soft);
   }
   .drawer-panel.open{display:block;}
-  .drawer-panel h4{color:var(--primary-dark);font-size:13.5px;margin:10px 0 4px;}
+  .drawer-panel h4{color:var(--primary-dark);font-size:16px;margin:12px 0 6px;}
   .drawer-panel .btn{margin-top:8px;}
   .drawer-footer{padding:12px 18px;font-size:11px;color:var(--ink-soft);text-align:center;border-top:1px solid var(--border);}
 
@@ -700,7 +700,7 @@
       </div>
     </div>
 
-    <div class="drawer-footer">تحفيظ القرآن برواية ورش — الإصدار 1.0 · تطوير الدكتور نور الدين شوشة<br>© جميع الحقوق محفوظة — الدكتور نور الدين شوشة</div>
+    <div class="drawer-footer">تحفيظ القرآن برواية ورش — الإصدار 1.0<br>© جميع الحقوق محفوظة — د. نورالدين شوشة، قصر الحيران، الجزائر</div>
   </div>
 
   <!-- ===================== LOCK SCREEN ===================== -->
@@ -1756,7 +1756,7 @@ async function confirmSetPassword(){
   if(p1 !== p2){ err.textContent = 'كلمتا السر غير متطابقتين'; return; }
   state.lock.password = p1;
   state.lock.enabled = true;
-  state.lock.trustedDevice = true;
+  state.lock.trustedDevice = false;
   await saveState();
   closeModal();
   renderSettings();
