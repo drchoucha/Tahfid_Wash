@@ -656,23 +656,6 @@
         <p>أما المصحف المرتّل صوتيًا، فيُحمَّل عبر الإنترنت عند الاستماع، ويُحفظ تلقائيًا على جهازك لمدة شهر واحد لتتمكن من الاستماع إليه لاحقًا بدون إنترنت. وبعد مرور الشهر، يبدأ التطبيق تلقائيًا بحذف الملفات الصوتية الأقدم فالأقدم، حفاظًا على حجم التطبيق وحسن أدائه.</p>
       </div>
 
-      <div class="drawer-sep" id="installSep"></div>
-
-      <div id="installSection">
-        <button class="drawer-item" onclick="toggleDrawerPanel('panelInstall')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M5 17v2a2 2 0 002 2h10a2 2 0 002-2v-2"/></svg>
-          تثبيت التطبيق على الهاتف
-          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-        </button>
-        <div class="drawer-panel" id="panelInstall">
-          <p>لتثبيت التطبيق كأيقونة على شاشة هاتفك (يعمل بعدها بلا إنترنت):</p>
-          <p>١. افتح هذه الصفحة بمتصفح <b>Chrome</b>.<br>
-          ٢. اضغط على أيقونة <b>⋮</b> (ثلاث نقاط) أعلى المتصفح.<br>
-          ٣. اختر <b>"التثبيت"</b> أو <b>"إضافة إلى الشاشة الرئيسية"</b>.<br>
-          ٤. ستظهر أيقونة التطبيق على شاشتك جاهزة للاستخدام.</p>
-        </div>
-      </div>
-
       <div class="drawer-sep"></div>
 
       <button class="drawer-item" onclick="toggleDrawerPanel('panelContact')">
@@ -1795,22 +1778,8 @@ function showChrome(){
 }
 document.addEventListener('pointerdown', showChrome);
 
-/* إخفاء تعليمات "التثبيت من المتصفح" عندما يعمل التطبيق أصلاً كتطبيق مثبَّت (PWA/TWA على أندرويد) */
-function hideInstallNoteIfInstalled(){
-  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true
-    || document.referrer.startsWith('android-app://');
-  if(isStandalone){
-    const sec = document.getElementById('installSection');
-    const sep = document.getElementById('installSep');
-    if(sec) sec.style.display = 'none';
-    if(sep) sep.style.display = 'none';
-  }
-}
-
 /* ===================== INIT ===================== */
 (async function init(){
-  hideInstallNoteIfInstalled();
   updateOnlineBadge();
   await loadState();
   document.getElementById('streakVal').textContent = state.streak;
